@@ -1,11 +1,11 @@
 import './App.css';
 import React from 'react';
-import Logo from './image/Logo';
+import Menu from './components/Menu';
 
 function App() {
   return (
-    <div>
-      <Logo />
+    <div className='m-8'>
+      <Menu />
     </div>
   );
 }
