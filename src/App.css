@@ -5,6 +5,14 @@
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
 }
-body{
+body {
   background: #344144;
+}
+.bg-menu {
+  background: rgb(52, 96, 80);
+  background: linear-gradient(
+    155deg,
+    rgba(52, 96, 80, 1) 0%,
+    rgba(13, 21, 21, 1) 13%
+  );
 }
