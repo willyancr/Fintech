@@ -4,7 +4,7 @@ import Menu from './components/Menu';
 
 function App() {
   return (
-    <div className='m-8'>
+    <div className=''>
       <Menu />
     </div>
   );
