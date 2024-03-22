@@ -1,6 +1,6 @@
 function Logo() {
   return (
-    <div>
+    <div >
       <img src="./src/image/1_LOGOMARCA_FINTECH.png" alt="" className="w-40" />
     </div>
   );
