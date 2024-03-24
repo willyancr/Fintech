@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, CardContent, CardDescription } from './ui/card';
+import { Card } from './ui/card';
+import Month from './Month';
 
 function Content() {
   return (
@@ -34,20 +35,7 @@ function Content() {
           </Card>
         </div>
       </div>
-      <div className="flex justify-between gap-2 text-projeto-primary3">
-        <p className="font-bold rounded-[6px] bg-projeto-primary1/10 border-[1px] border-projeto-primary1/20 w-36 py-1 text-center hover:bg-projeto-secondary/80 hover:text-projeto-primary hover:cursor-pointer ease-in duration-150">
-          Janeiro
-        </p>
-        <p className="font-bold rounded-[6px] bg-projeto-primary1/10 border-[1px] border-projeto-primary1/20 w-36 py-1 text-center hover:bg-projeto-secondary/80 hover:text-projeto-primary hover:cursor-pointer ease-in duration-150">
-          Janeiro
-        </p>
-        <p className="font-bold rounded-[6px] bg-projeto-primary1/10 border-[1px] border-projeto-primary1/20 w-36 py-1 text-center hover:bg-projeto-secondary/80 hover:text-projeto-primary hover:cursor-pointer ease-in duration-150">
-          Janeiro
-        </p>
-        <p className="font-bold rounded-[6px] bg-projeto-primary1/10 border-[1px] border-projeto-primary1/20 w-36 py-1 text-center hover:bg-projeto-secondary/80 hover:text-projeto-primary hover:cursor-pointer ease-in duration-150">
-          Janeiro
-        </p>
-      </div>
+      <Month />
     </div>
   );
 }
