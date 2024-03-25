@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   BiCog,
   BiHomeAlt,
@@ -22,10 +21,12 @@ function Menu() {
           <BiHomeAlt className=" size-5 " />
           <p>Resumo</p>
         </div>
+
         <div className="flex items-center gap-3 mb-6 px-2 py-1 rounded hover:bg-projeto-secondary/80 hover:text-projeto-primary hover:font-bold hover:cursor-pointer ease-in duration-150">
           <BiPurchaseTag className="size-5" />
           <p>Vendas</p>
         </div>
+
         <div className="flex items-center gap-3 mb-6 px-2 py-1 rounded hover:bg-projeto-secondary/80 hover:text-projeto-primary hover:font-bold hover:cursor-pointer ease-in duration-150">
           <BiTransfer className="size-5" />
           <p>Webhooks</p>
