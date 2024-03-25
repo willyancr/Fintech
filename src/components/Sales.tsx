@@ -1,6 +1,8 @@
 import Month from './Month';
 import Date from './Date';
 import Title from './Title';
+import TableSales from './TableSales';
+import SearchSales from './SearchSales';
 function Sales() {
   return (
     <div className="bg-projeto-primary rounded-xl rounded-l-lg px-8 py-7">
@@ -13,6 +15,8 @@ function Sales() {
       </div>
       <div className="flex flex-col gap-4 ">
         <Month />
+        <SearchSales />
+        <TableSales />
       </div>
     </div>
   );
