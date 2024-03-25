@@ -20,7 +20,7 @@ function Month() {
   return (
     <div className="flex justify-between gap-2 text-projeto-primary3">
       {months.map((month) => (
-        <p className="font-bold rounded-[6px] bg-projeto-primary1/10 border-[1px] border-projeto-primary1/20 w-36 py-2 text-center hover:bg-projeto-secondary/80 hover:text-projeto-primary hover:cursor-pointer ease-in duration-150 capitalize">
+        <p className="font-bold rounded-[6px] bg-projeto-primary1/50 border-[1px] border-projeto-primary1/20 w-36 py-2 text-center hover:bg-projeto-secondary/80 hover:text-projeto-primary hover:cursor-pointer ease-in duration-150 capitalize">
           {month.month}
         </p>
       ))}

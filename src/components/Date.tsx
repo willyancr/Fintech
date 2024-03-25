@@ -14,11 +14,11 @@ function Date() {
       <div className="flex gap-6 pb-4 px-4">
         <input
           type="date"
-          className="w-32 bg-projeto-primary1 text-projeto-primary3 rounded text-sm pl-2 py-1"
+          className="w-32 bg-projeto-primary1/50 text-projeto-primary3 rounded text-sm pl-2 py-1"
         />
         <input
           type="date"
-          className="w-32 bg-projeto-primary1 text-projeto-primary3 rounded text-sm pl-2 py-1"
+          className="w-32 bg-projeto-primary1/50 text-projeto-primary3 rounded text-sm pl-2 py-1"
         />
       </div>
     </Card>
