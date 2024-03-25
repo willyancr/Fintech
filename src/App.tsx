@@ -1,13 +1,14 @@
 import './App.css';
 import Home from './components/Home';
-import Menu from './components/Menu';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import UserContextProvider from './components/UserContext';
 
 function App() {
   return (
-    <div>
-      <Home />
-    </div>
+    <UserContextProvider>
+      <div>
+        <Home />
+      </div>
+    </UserContextProvider>
   );
 }
 
