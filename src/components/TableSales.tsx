@@ -32,12 +32,12 @@ function TableSales() {
           <TableCell>R$ 256,30</TableCell>
         </TableRow>
       </TableBody>
-      <TableFooter>
+      {/* <TableFooter>
         <TableRow className="bg-projeto-primary1/20">
           <TableCell colSpan={2}>Total</TableCell>
           <TableCell>$2,500.00</TableCell>
         </TableRow>
-      </TableFooter>
+      </TableFooter> */}
     </Table>
   );
 }
