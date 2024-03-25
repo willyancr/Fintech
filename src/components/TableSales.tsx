@@ -8,9 +8,13 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function TableSales() {
+  const navigate = useNavigate();
+  function handleClick() {
+    navigate('/vendas/id');
+  }
   return (
     <Table className="text-projeto-primary3">
       <TableCaption>Uma lista das suas faturas recentes.</TableCaption>
@@ -21,14 +25,12 @@ function TableSales() {
           <TableHead>Valor</TableHead>
         </TableRow>
       </TableHeader>
-      <TableBody>
-        <Link to="/vendas/id">
-          <TableRow>
-            <TableCell>1012</TableCell>
-            <TableCell>MARIA JOSÉ DA SILVA</TableCell>
-            <TableCell>R$ 256,30</TableCell>
-          </TableRow>
-        </Link>
+      <TableBody onClick={handleClick} className='cursor-pointer'>
+        <TableRow>
+          <TableCell>1012</TableCell>
+          <TableCell>MARIA JOSÉ DA SILVA</TableCell>
+          <TableCell>R$ 256,30</TableCell>
+        </TableRow>
       </TableBody>
       <TableFooter>
         <TableRow className="bg-projeto-primary1/20">
