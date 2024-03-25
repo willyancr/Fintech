@@ -1,17 +1,18 @@
+import Month from './Month';
+import Date from './Date';
+import Title from './Title';
 function Sales() {
   return (
-    <div className="flex justify-between gap-2 text-projeto-primary3">
-      <div className="flex flex-col gap-4 font-bold rounded-[6px] bg-projeto-primary1/10 border-[1px] border-projeto-primary1/20 w-52 pl-4 py-2">
-        <p>Vendas</p>
-        <p>R$ 84.200,00</p>
+    <div className="bg-projeto-primary rounded-xl rounded-l-lg px-8 py-7">
+      <h1 className="text-projeto-primary3 text-xl font-bold mb-4">
+        Dashboard
+      </h1>
+      <div className="flex gap-4 text-projeto-primary3 mb-4">
+        <Date />
+        <Title>Vendas</Title>
       </div>
-      <div className="flex flex-col gap-4 font-bold rounded-[6px] bg-projeto-primary1/10 border-[1px] border-projeto-primary1/20 w-52 pl-4 py-2">
-        <p>Recebido</p>
-        <p>R$ 54.200,00</p>
-      </div>
-      <div className="flex flex-col gap-4 font-bold rounded-[6px] bg-projeto-primary1/10 border-[1px] border-projeto-primary1/20 w-52 pl-4 py-2">
-        <p>Processando</p>
-        <p>R$ 34.200,00</p>
+      <div className="flex flex-col gap-4 ">
+        <Month />
       </div>
     </div>
   );
