@@ -11,7 +11,7 @@ function SaleDetails() {
       </h1>
       <div className="flex gap-4 text-projeto-primary3 mb-4">
         <Date />
-        <Title>Resumo</Title>
+        <Title>Detalhes da Venda</Title>
       </div>
       <div className="flex flex-col gap-4 ">
         <Month />
