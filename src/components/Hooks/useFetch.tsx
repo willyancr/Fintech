@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 function useFetch<T>(url: RequestInfo | URL, options?: RequestInit) {
   const [data, setData] = React.useState<T | null>(null);
   const [loading, setLoading] = React.useState(false);
@@ -14,8 +12,8 @@ function useFetch<T>(url: RequestInfo | URL, options?: RequestInit) {
     const controller = new AbortController();
     const { signal } = controller;
     const fetchData = async () => {
-      setLoading(true);
       try {
+        setLoading(true);
         setData(null);
         setError(null);
         const response = await fetch(url, {
@@ -26,7 +24,7 @@ function useFetch<T>(url: RequestInfo | URL, options?: RequestInit) {
         const json = await response.json();
         if (!signal.aborted) setData(json);
       } catch (error) {
-        if (error instanceof Error) setError(error.message);
+        if (!signal.aborted && error instanceof Error) setError(error.message);
       } finally {
         setLoading(false);
       }
