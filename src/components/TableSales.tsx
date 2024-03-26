@@ -4,25 +4,25 @@ import {
   TableBody,
   TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { useNavigate } from 'react-router-dom';
 import { useSale } from '../components/UserContext';
 import SearchSales from './SearchSales';
+import Loading from './Loading';
 
 function TableSales() {
-  const navigate = useNavigate();
-  const { data } = useSale();
+  const { data, loading, handleID } = useSale();
   const [search, setSearch] = React.useState('');
-  function handleClick() {
-    navigate('/vendas/id');
+
+  if (loading) {
+    return <Loading />;
   }
   return (
     <>
       <SearchSales search={search} setSearch={setSearch} />
+
       <Table className="text-projeto-primary3">
         <TableCaption>Uma lista das suas faturas recentes.</TableCaption>
         <TableHeader>
@@ -32,13 +32,13 @@ function TableSales() {
             <TableHead>Valor</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody onClick={handleClick} className="cursor-pointer text-white">
+        <TableBody className="cursor-pointer text-white">
           {data
-            ?.filter((sale: { id: string; nome: string; preco: number }) =>
+            ?.filter((sale) =>
               sale.nome.toLowerCase().includes(search.toLowerCase()),
             )
-            .map((sale: { id: string; nome: string; preco: number }) => (
-              <TableRow key={sale.id}>
+            .map((sale) => (
+              <TableRow key={sale.id} onClick={() => handleID(sale)}>
                 <TableCell>{sale.id}</TableCell>
                 <TableCell>{sale.nome}</TableCell>
                 <TableCell>R$ {sale.preco}</TableCell>
