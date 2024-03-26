@@ -14,11 +14,15 @@ type UserContextValue = {
   data: Sale[] | null;
   loading: boolean;
   error: null | string;
-  calculateTotalSales: (data: Sale[]) => number;
-  calculateReceived: (data: Sale[]) => number;
-  calculateProcessing: (data: Sale[]) => number;
+  calculateTotalSales: (data: Sale[] | null) => number;
+  calculateReceived: (data: Sale[] | null) => number;
+  calculateProcessing: (data: Sale[] | null) => number;
   handleID: (sales: Sale) => void;
-  selected: Sale | null;
+  selectedSale: Sale | null;
+  inicio: string;
+  final: string;
+  setInicio: React.Dispatch<React.SetStateAction<string>>;
+  setFinal: React.Dispatch<React.SetStateAction<string>>;
 };
 const UserContext = React.createContext<UserContextValue | null>(null);
 export const useSale = () => {
@@ -30,30 +34,33 @@ export const useSale = () => {
 };
 
 export const UserContextProvider = ({ children }: React.PropsWithChildren) => {
-  const { data, loading, error } = useFetch<Sale[]>(
-    'https://data.origamid.dev/vendas',
-  );
-  const [selected, setSelected] = React.useState<Sale | null>(null);
   const navigate = useNavigate();
+  const [selectedSale, setSelectedSale] = React.useState<Sale | null>(null);
+  const [inicio, setInicio] = React.useState('');
+  const [final, setFinal] = React.useState('');
 
-  const calculateTotalSales = (sales: Sale[]) => {
+  const { data, loading, error } = useFetch<Sale[]>(
+    `https://data.origamid.dev/vendas/?inicio=${inicio}&final=${final}`,
+  );
+
+  const calculateTotalSales = (sales: Sale[] | null) => {
     if (!sales) return 0;
     return sales.reduce((total, sale) => total + sale.preco, 0);
   };
-  const calculateReceived = (sales: Sale[]) => {
+  const calculateReceived = (sales: Sale[] | null) => {
     if (!sales) return 0;
     return sales
       .filter((sale) => sale.status === 'pago')
       .reduce((total, sale) => total + sale.preco, 0);
   };
-  const calculateProcessing = (sales: Sale[]) => {
+  const calculateProcessing = (sales: Sale[] | null) => {
     if (!sales) return 0;
     return sales
       .filter((sale) => sale.status === 'processando')
       .reduce((total, sale) => total + sale.preco, 0);
   };
   const handleID = (sales: Sale) => {
-    setSelected(sales);
+    setSelectedSale(sales);
     navigate(`/vendas/detalhes`);
   };
   return (
@@ -66,7 +73,11 @@ export const UserContextProvider = ({ children }: React.PropsWithChildren) => {
         calculateReceived,
         calculateProcessing,
         handleID,
-        selected,
+        selectedSale,
+        inicio,
+        setInicio,
+        final,
+        setFinal,
       }}
     >
       {children}
