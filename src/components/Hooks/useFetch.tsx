@@ -13,16 +13,25 @@ function useFetch<T>(url: RequestInfo | URL, options?: RequestInit) {
     const { signal } = controller;
     const fetchData = async () => {
       try {
-        setLoading(true);
         setData(null);
         setError(null);
-        const response = await fetch(url, {
-          signal,
-          ...optionsRef.current,
-        });
-        if (!response.ok) throw new Error('Response not ok');
-        const json = await response.json();
-        if (!signal.aborted) setData(json);
+        setTimeout(async () => {
+          setLoading(true);
+          try {
+            const response = await fetch(url, {
+              signal,
+              ...optionsRef.current,
+            });
+            if (!response.ok) throw new Error('Response not ok');
+            const json = await response.json();
+            if (!signal.aborted) setData(json);
+          } catch (error) {
+            if (!signal.aborted && error instanceof Error)
+              setError(error.message);
+          } finally {
+            setLoading(false);
+          }
+        }, 1000);
       } catch (error) {
         if (!signal.aborted && error instanceof Error) setError(error.message);
       } finally {
@@ -30,6 +39,9 @@ function useFetch<T>(url: RequestInfo | URL, options?: RequestInit) {
       }
     };
     fetchData();
+    return () => {
+      controller.abort();
+    };
   }, [url]);
 
   return {
