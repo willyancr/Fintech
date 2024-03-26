@@ -14,7 +14,7 @@ function Home() {
           <Routes>
             <Route path="/" element={<Resume />} />
             <Route path="/vendas" element={<Sales />} />
-            <Route path="/vendas/id" element={<SaleDetails />} />
+            <Route path="/vendas/detalhes" element={<SaleDetails />} />
           </Routes>
         </UserContextProvider>
       </BrowserRouter>
