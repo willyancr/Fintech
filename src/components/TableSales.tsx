@@ -15,12 +15,12 @@ import Loading from './Loading';
 function TableSales() {
   const { data, loading, handleID } = useSale();
   const [search, setSearch] = React.useState('');
-
   if (loading) {
     return <Loading />;
   }
   return (
     <>
+      {loading && <Loading />}
       <SearchSales search={search} setSearch={setSearch} />
 
       <Table className="text-projeto-primary3">
