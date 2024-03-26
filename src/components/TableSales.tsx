@@ -9,9 +9,12 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { useNavigate } from 'react-router-dom';
+import { useSale } from './UserContext';
 
 function TableSales() {
   const navigate = useNavigate();
+  const { data } = useSale();
+
   function handleClick() {
     navigate('/vendas/id');
   }
@@ -25,19 +28,15 @@ function TableSales() {
           <TableHead>Valor</TableHead>
         </TableRow>
       </TableHeader>
-      <TableBody onClick={handleClick} className='cursor-pointer'>
-        <TableRow>
-          <TableCell>1012</TableCell>
-          <TableCell>MARIA JOSÉ DA SILVA</TableCell>
-          <TableCell>R$ 256,30</TableCell>
-        </TableRow>
+      <TableBody onClick={handleClick} className="cursor-pointer text-white">
+        {data?.map((sale) => (
+          <TableRow key={sale.id}>
+            <TableCell>{sale.id}</TableCell>
+            <TableCell>{sale.nome}</TableCell>
+            <TableCell>R$ {sale.preco}</TableCell>
+          </TableRow>
+        ))}
       </TableBody>
-      {/* <TableFooter>
-        <TableRow className="bg-projeto-primary1/20">
-          <TableCell colSpan={2}>Total</TableCell>
-          <TableCell>$2,500.00</TableCell>
-        </TableRow>
-      </TableFooter> */}
     </Table>
   );
 }
