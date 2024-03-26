@@ -16,4 +16,22 @@ body {
     rgba(13, 21, 21, 1) 13%
   );
 }
+.loading{
+  display: flex;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 10px solid #344144;
+  border-top-color: #A1FED4;
+  animation: loader-circle 2s linear infinite;
+}
 
+@keyframes loader-circle {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
