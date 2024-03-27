@@ -1,30 +1,60 @@
-# React + TypeScript + Vite
+# Dashboard de Vendas - Fintech
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de dashboard simples para uma fintech, desenvolvido com React, TypeScript, Tailwind CSS e Shadcn/UI.
 
-Currently, two official plugins are available:
+## Descrição
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este é um projeto de dashboard simples para uma fintech, desenvolvido utilizando Vite, React, TypeScript, TailwindCSS e Shadcn/UI. O dashboard busca dados de vendas de uma API externa e possui três páginas principais: Resumo, Vendas e Detalhes da Venda.
+## Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+**Front-end:** Vite, React, JavaScript, TailwindCSS, Shadcn
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+
+## Funcionalidades
+
+### Página Resumo
+- O usuário pode buscar as vendas por data de início e fim.
+- Botões para seleção rápida de datas (por exemplo, mês atual e os próximos 3 meses).
+- Cards exibindo o total de vendas, valor recebido e valor em processamento.
+- Gráfico das vendas.
+
+### Página Vendas
+- Lista das vendas obtidas da API.
+- O usuário pode buscar as vendas por data de início e fim.
+- Botões para seleção rápida de datas (por exemplo, mês atual e os próximos 3 meses).
+- Pesquisar vendas pelo nome.
+
+### Página Detalhe da Venda
+- Ao clicar em uma venda na página de vendas, o usuário é direcionado para uma página de detalhes dessa venda.
+
+
+## Instalação
+
+Instale Fintech com npm
+- Clone o repositório:
+```bash
+  git clone https://github.com/willyancr/Fintech.git
 ```
+- Navegue até o diretório do projeto:
+```bash
+  cd Fintech
+```
+- Instale as dependências:
+```bash
+  npm install
+```
+- Inicie o servidor de desenvolvimento:
+```bash
+  npm run dev
+```   
+## Contribuição
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Contribuições são bem-vindas! Sinta-se à vontade para abrir problemas (issues) ou enviar solicitações de pull com melhorias.
+
+
+## Licença
+
+Este projeto é licenciado sob a [Licença MIT](https://choosealicense.com/licenses/mit/)
+
