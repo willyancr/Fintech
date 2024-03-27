@@ -2,7 +2,7 @@ import React from 'react';
 import useFetch from './Hooks/useFetch';
 import { useNavigate } from 'react-router-dom';
 
-type Sale = {
+export type Sale = {
   id: string;
   nome: string;
   preco: number;
@@ -32,12 +32,18 @@ export const useSale = () => {
   }
   return context;
 };
-
+function getDaysAgo(days: number) {
+  const today = new Date();
+  const date = new Date(today.getTime());
+  date.setDate(date.getDate() - days);
+  const formattedDate = date.toISOString().split('T')[0];
+  return formattedDate;
+}
 export const UserContextProvider = ({ children }: React.PropsWithChildren) => {
   const navigate = useNavigate();
   const [selectedSale, setSelectedSale] = React.useState<Sale | null>(null);
-  const [inicio, setInicio] = React.useState('');
-  const [final, setFinal] = React.useState('');
+  const [inicio, setInicio] = React.useState(getDaysAgo(30));
+  const [final, setFinal] = React.useState(getDaysAgo(0));
 
   const { data, loading, error } = useFetch<Sale[]>(
     `https://data.origamid.dev/vendas/?inicio=${inicio}&final=${final}`,
