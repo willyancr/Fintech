@@ -2,7 +2,6 @@ import Month from './Month';
 import Date from './Date';
 import Title from './Title';
 import SaleDetailsCard from './SaleDetailsCard';
-import Loading from './Loading';
 
 function SaleDetails() {
   return (
@@ -16,7 +15,6 @@ function SaleDetails() {
       </div>
       <div className="flex flex-col gap-4 ">
         <Month />
-        <Loading />
         <SaleDetailsCard />
       </div>
     </div>
